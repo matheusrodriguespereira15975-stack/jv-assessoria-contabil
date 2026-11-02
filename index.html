@@ -1,62 +1,257 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JV Assessoria Contábil | Site em Construção</title>
-  <meta name="description" content="JV Assessoria Contábil - Site em construção.">
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fale com a JV | JV Assessoria e Serviços Contábeis</title>
+  <meta name="description" content="Fale pelo WhatsApp com a JV Assessoria e Serviços Contábeis em Palmeiras de Goiás, consulte o endereço e acesse nosso site e Instagram.">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --azul: #0d1b2a;
+      --ouro: #d4af37;
+      --marfim: #faf7ed;
+      --divisa: #8c793f;
+      font-family: Arial, sans-serif;
+      color: var(--marfim);
+      background: var(--azul);
     }
-
-    body {
-      background-color: #0D1B2A;
-      display: flex;
-      flex-direction: column;
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .pagina {
+      max-width: 76rem;
+      margin: auto;
+      padding: clamp(1.25rem, 5vw, 5rem);
+    }
+    main {
+      display: grid;
+      gap: clamp(2rem, 5vw, 5rem);
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
+      margin-block: clamp(1rem, 6vw, 6rem);
     }
-
-    .logo {
-      width: 220px;
-      height: 220px;
-      object-fit: contain;
-      animation: pulse 3.5s ease-in-out infinite;
+    main > * { min-width: 0; }
+    body { background: radial-gradient(ellipse at top left,#1d3547,transparent 58%),var(--azul); min-height:100vh; }
+    .pagina { max-width:78rem; }
+    .topo,.secao { display:flex; align-items:center; gap:.8rem; color:#e4c66a; font:600 .7rem/1.4 Arial,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+    .topo { justify-content:space-between; padding-bottom:1rem; border-bottom:1px solid #726541; }
+    .topo img { display:block; width:clamp(5rem,9vw,7rem); height:auto; }
+    main { align-items:start; }
+    .cena { position:relative; aspect-ratio:1123/650; perspective:1100px; }
+    .cartao { width:100%; height:100%; transform-style:preserve-3d; animation:girar 14s linear infinite; }
+    @keyframes girar { from { transform:rotateY(0); } to { transform:rotateY(1turn); } }
+    .cena.pausada .cartao { animation-play-state:paused; }
+    @media (hover:hover) { .cena:hover .cartao { animation-play-state:paused; } }
+    @media (prefers-reduced-motion:reduce) { .cartao[data-verso] { transform:rotateY(180deg); } }
+    .cartao img { position:absolute; inset:0; width:100%; height:100%; backface-visibility:hidden; border-radius:.35rem; box-shadow:0 6px 14px #0004; }
+    .cartao img + img { transform:rotateY(180deg); }
+    .virar { position:absolute; inset:0; width:100%; background:transparent; border:0; cursor:pointer; }
+    .virar:focus-visible { outline:3px solid var(--ouro); outline-offset:3px; }
+    .secao { margin-bottom:1rem; }
+    .secao::after { content:""; height:1px; flex:1; background:#726541; }
+    .mapa { width:100%; height:clamp(11rem,22vw,15rem); border:0; display:block; border-radius:.5rem; margin-top:.8rem; background:#edeae0; }
+    h1, h2, p { margin: 0; }
+    .introducao { margin-top:clamp(1.7rem,4vw,3.5rem); }
+    .introducao h1 {
+      margin:0 0 .7rem;
+      font:normal clamp(2.25rem,4.2vw,3.65rem)/1.1 Georgia,serif;
+      letter-spacing:-.04em;
     }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.3));
-      }
-      50% {
-        transform: scale(1.07);
-        filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.7));
-      }
+    .introducao h1 span { color:#e4c66a; }
+    .apoio {
+      max-width:40ch; color:#d2dde3;
+      font-size:clamp(.95rem,1.2vw,1.08rem);
+      line-height:1.55; text-wrap:pretty;
     }
-
-    h1 {
-      margin-top: 2rem;
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #D4AF37;
+    .cidade { white-space:nowrap; }
+    nav { display:grid; gap:.65rem; }
+    .canal {
+      --acento:#dcc273;
+      --superficie:#142839;
+      --borda:#39505d;
+      position:relative;
+      display:grid;
+      grid-template-columns:2.35rem minmax(0,1fr) 1.5rem;
+      align-items:center;
+      gap:clamp(.6rem,1.3vw,1rem);
+      padding:1rem clamp(.75rem,2vw,1.35rem);
+      min-height:4.9rem;
+      background:var(--superficie);
+      border:1px solid var(--borda);
+      border-radius:2px 12px 2px 2px;
+      color:inherit;
+      text-decoration:none;
+      animation:entrar .25s ease-out both;
+      transition:border-color .22s, background-color .22s;
+    }
+    .canal:nth-child(2) { animation-delay:50ms; }
+    .canal:nth-child(3) { animation-delay:100ms; }
+    .canal:nth-child(4) { animation-delay:150ms; }
+    .icone {
+      box-sizing:border-box;
+      width:2.35rem; height:2.35rem; padding:.45rem;
+      border-right:1px solid var(--borda);
+      color:var(--acento); fill:none; stroke:currentColor;
+      stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;
+    }
+    .titulo { display:block; font:normal clamp(1.15rem,2vw,1.5rem)/1.15 Georgia,serif; }
+    .detalhe { display:block; margin-top:.35rem; color:#cdd8dd; font-size:.89rem; line-height:1.45; overflow-wrap:anywhere; }
+    .seta { color:var(--acento); text-align:center; font-size:1.2rem; transition:transform .22s; }
+    .telefone { --superficie:#faf6e9; --borda:#cdbf9a; --acento:#82651d; color:var(--azul); padding-block:1.35rem; }
+    .telefone .titulo { font:700 .71rem/1.4 Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; }
+    .telefone .detalhe { color:inherit; font:normal clamp(1.3rem,3.3vw,2.55rem)/1.2 Georgia,serif; letter-spacing:-.035em; }
+    .canal:focus-visible { outline:3px solid var(--ouro); outline-offset:2px; }
+    .canal:active { border-color:var(--acento); }
+    footer {
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.25rem 2rem;
+      border-top:1px solid #52616a;
+      padding-block:1.5rem;
+    }
+    footer::before {
+      content:"";
+      position:absolute;
+      inset:-1px auto auto 0;
+      width:3rem;
+      height:2px;
+      background:var(--ouro);
+    }
+    .rodape-nome { font:normal clamp(1.2rem,2vw,1.65rem)/1.25 Georgia,serif; }
+    .rodape-local, .rodape-cnpj { color:#cbd5dc; font-size:.88rem; line-height:1.5; }
+    .rodape-local { margin-top:.3rem; }
+    .rodape-cnpj { text-align:right; font-variant-numeric:tabular-nums; }
+    .rodape-cnpj span {
+      display:block;
+      color:#e4c66a;
+      font-size:.68rem;
+      font-weight:700;
+      letter-spacing:.15em;
+    }
+    @media (max-width:36rem) {
+      footer { flex-direction:column; align-items:flex-start; gap:.85rem; }
+      .rodape-cnpj { text-align:left; }
+    }
+    @media (hover: hover) {
+      .canal:hover { background-color:#1c3548; border-color:var(--acento); }
+      .telefone:hover { background-color:#fffaf0; }
+      .canal:hover .seta { transform: translate(3px,-2px); }
+    }
+    @media (min-width: 52rem) {
+      main { grid-template-columns: 1fr 1.1fr; }
+    }
+    @keyframes entrar { from { transform: translateY(5px); } to { transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="JV Assessoria Contábil" class="logo">
-  <h1>Site em Construção</h1>
+  <div class="pagina">
+    <div class="topo"><img src="logo%20jv%20assessoria%20contabil.png" width="357" height="264" alt="JV Assessoria Contábil"><span>Contato</span></div>
+    <main>
+      <header>
+        <div class="cena">
+            <div class="cartao">
+              <img src="frente.png" alt="Frente do cartão da JV Assessoria Contábil">
+              <img src="costas.png" alt="Verso do cartão com QR code e contatos da JV">
+            </div>
+            <button hidden class="virar" type="button" aria-label="Virar cartão de visitas" title="Clique para virar o cartão"></button>
+          </div>
+        <div class="introducao">
+          <h1>Fale com a <span>JV</span></h1>
+          <p class="apoio">Entre em contato com nossa equipe em <span class="cidade">Palmeiras de Goiás.</span></p>
+        </div>
+      </header>
+
+      <!-- Os dados de contato e seus destinos ficam juntos neste índice. -->
+      <section aria-label="Contatos e localização"><div class="secao">Canais de atendimento</div>
+      <nav aria-label="Canais de contato">
+        <a class="canal telefone" href="https://wa.me/5564999590892" target="_blank" rel="noopener noreferrer">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 11.6a9 9 0 0 1-13.3 8L3 21l1.4-4.6A9 9 0 1 1 21 11.6Z"/>
+            <path d="m8 7 1.2-.3 1.1 2.4-.9 1a7 7 0 0 0 3.5 3.5l1-1 2.4 1.2-.2 1.3c-.2 1-1.3 1.4-2.4 1.1-3.6-1-6.4-3.9-7.2-7.1-.2-1 .4-1.8 1.5-2.1Z"/>
+          </svg>
+          <span><span class="titulo">Conversar no WhatsApp</span>
+            <span class="detalhe">(64) 99959-0892</span></span>
+          <span class="seta" aria-hidden="true">↗</span>
+        </a>
+        <a class="canal" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%2004%2C%20S%2FN%20-%20Setor%20Jardim%20das%20Oliveiras%2C%20Palmeiras%20de%20Goi%C3%A1s%20-%20GO%2C%20CEP%2076190-000">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          <span><span class="titulo">Como chegar</span>
+            <span class="detalhe">Rua 04, S/N - Setor Jardim das Oliveiras<br>
+              Palmeiras de Goiás - GO · CEP 76190-000</span></span>
+          <span class="seta" aria-hidden="true">↗</span>
+        </a>
+        <a class="canal" href="https://www.jvcontabilassessoria.com.br/">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/>
+          </svg>
+          <span><span class="titulo">Visitar o site</span>
+            <span class="detalhe">jvcontabilassessoria.com.br</span></span>
+          <span class="seta" aria-hidden="true">↗</span>
+        </a>
+        <a class="canal" href="https://www.instagram.com/jvcontassessoria/" target="_blank" rel="noopener noreferrer">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".7"/>
+          </svg>
+          <span><span class="titulo">Acessar o Instagram</span>
+            <span class="detalhe">@jvcontassessoria</span></span>
+          <span class="seta" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+      <iframe class="mapa" title="Localização da JV em Palmeiras de Goiás no Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?hl=pt-BR&amp;q=Rua%2004%2C%20S%2FN%2C%20Setor%20Jardim%20das%20Oliveiras%2C%20Palmeiras%20de%20Goi%C3%A1s%20-%20GO%2C%20CEP%2076190-000&amp;output=embed"></iframe>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <p class="rodape-nome">JV Assessoria e Serviços Contábeis</p>
+        <p class="rodape-local">Palmeiras de Goiás · GO</p>
+      </div>
+      <p class="rodape-cnpj"><span>CNPJ</span>46.133.463/0001-22</p>
+    </footer>
+  </div>
+<script>
+  const cena = document.querySelector('.cena');
+  const cartao = cena.querySelector('.cartao');
+  const botao = cena.querySelector('button');
+  const movimentoReduzido = matchMedia('(prefers-reduced-motion: reduce)');
+  let virada;
+
+  botao.hidden = false;
+  botao.addEventListener('click', () => {
+    const giro = cartao.getAnimations().find(animacao => animacao.animationName === 'girar');
+    if (!giro || movimentoReduzido.matches) {
+      cartao.toggleAttribute('data-verso');
+      return;
+    }
+
+    // O giro contínuo retoma exatamente da face escolhida.
+    const duracao = giro.effect.getTiming().duration;
+    const tempo = giro.currentTime % duracao;
+    const angulo = tempo / duracao * 360;
+    const destino = Math.round(angulo / 180) * 180 + 180;
+    const inicio = getComputedStyle(cartao).transform;
+    virada?.cancel();
+    giro.currentTime = destino / 360 * duracao;
+    virada = cartao.animate([
+      { transform: inicio },
+      { transform: 'rotateY(' + destino + 'deg)' }
+    ], { duration: 650, easing: 'ease-in-out' });
+  });
+
+  // No toque e no teclado a face fica disponível até sair do cartão.
+  botao.addEventListener('focus', () => cena.classList.add('pausada'));
+  botao.addEventListener('blur', () => cena.classList.remove('pausada'));
+  cena.addEventListener('pointerleave', evento => {
+    if (evento.pointerType === 'mouse') cena.classList.remove('pausada');
+  });
+  movimentoReduzido.addEventListener('change', () => virada?.cancel());
+</script>
 </body>
 </html>
